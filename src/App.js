@@ -24,8 +24,12 @@ export default class App extends Component {
     await this.setState({ Id: event.target.value, Data: this.state.Data })
     this.fetchData()
   }
-  componentDidMount(){
+  componentDidMount() {
     this.fetchData()
+    this.interval = setInterval(() => this.fetchData(), 2000);
+  }
+  componentWillUnmount() {
+    clearInterval(this.interval);
   }
 
   render() {
@@ -40,9 +44,16 @@ export default class App extends Component {
           atl={this.state.Data.market_data ? this.state.Data.market_data.ath.inr : ""}
           sentiment={this.state.Data.sentiment_votes_up_percentage} 
           high24={this.state.Data.market_data ? this.state.Data.market_data.high_24h["inr"] : ""}
-          low24={this.state.Data.market_data ? this.state.Data.market_data.low_24h["inr"] : ""} />
-        <ChartSection Id={this.state.Id}/>
-      </div>
+          low24={this.state.Data.market_data ? this.state.Data.market_data.low_24h["inr"] : ""} 
+        />
+
+        <ChartSection Id={this.state.Id} priceChange24={this.state.Data.market_data ? this.state.Data.market_data.price_change_24h_in_currency.usd : ""} 
+        MarketCap={this.state.Data.market_data ? this.state.Data.market_data.market_cap.usd  : ""}
+        TotVol={this.state.Data.market_data ? this.state.Data.market_data.total_volume.usd  : ""}
+        Circulating= {this.state.Data.market_data ? this.state.Data.market_data["circulating_supply"] : ""}
+        twitterF = {this.state.Data.community_data ? this.state.Data.community_data.twitter_followers : ""}
+        />      
+        </div>
     )
   }
 }
