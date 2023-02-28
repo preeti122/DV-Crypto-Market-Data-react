@@ -131,11 +131,11 @@ export class ChartSection extends Component {
     prevId = this.props.Id
 
     fetchData = async () => {
-        let chartData = await fetch('https://api.coingecko.com/api/v3/coins/' + this.props.Id + '/market_chart?vs_currency=usd&days=' + this.state.Price.options.selection);
+        let chartData = await fetch('https://api.coingecko.com/api/v3/coins/' + this.props.Id + '/market_chart?vs_currency=INR&days=' + this.state.Price.options.selection);
         let jsonChartData = await chartData.json()
         this.setState({ Price: { options: this.state.Price.options, series: [{ name: 'Market Price', data: jsonChartData.prices }] } })
-        this.setState({ Market_Cap: { options: this.state.Market_Cap.options, series: [{ name: 'Market Price', data: jsonChartData.market_caps }] } })
-        this.setState({ Tot_Vol: { options: this.state.Tot_Vol.options, series: [{ name: 'Market Price', data: jsonChartData.total_volumes }] } })
+        this.setState({ Market_Cap: { options: this.state.Market_Cap.options, series: [{ name: 'Market Cap', data: jsonChartData.market_caps }] } })
+        this.setState({ Tot_Vol: { options: this.state.Tot_Vol.options, series: [{ name: 'Total Volumes', data: jsonChartData.total_volumes }] } })
 
     }
 
@@ -248,7 +248,7 @@ export class ChartSection extends Component {
 
 
                         </div>
-                        <div className="col" style={{ maxWidth: '310px' }}>
+                        {/* <div className="col" style={{ maxWidth: '310px' }}>
                             <div >
                                 <Chart
                                     options={this.state.Market_Cap.options}
@@ -265,7 +265,7 @@ export class ChartSection extends Component {
                                     height='200'
                                     width='300' />
                             </div>
-                        </div>
+                        </div> */}
 
 
                     </div>

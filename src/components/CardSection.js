@@ -30,7 +30,7 @@ export class CardSection extends Component {
             <div className="card text-white text-center  m-3"
                 style={{ width: "11rem", backgroundColor: "rgb(43, 43, 43)", marginTop: "0px !important" }}>
                 <div className="card-body">
-                    <h6 className="card-title" style={{ fontFamily: 'NHaasGroteskDSPro-65Md' }}>All Time High</h6>
+                    <h6 className="card-title" style={{ fontFamily: 'NHaasGroteskDSPro-65Md' }}>All Time Low</h6>
                     <p className="card-text fw-bold fs-5" style={{ color: "rgb(124, 191, 216)" }}>
                         ₹{this.props.atl}
                     </p>
