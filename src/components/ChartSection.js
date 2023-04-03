@@ -27,14 +27,10 @@ export class ChartSection extends Component {
                     }, dataLabels: {
                         enabled: false
                     }, yaxis: {
-                        // show: true,
-                        // showAlways:true,
-                        // floating:false
                         labels:{
                             formatter: function(val){
                             return val.toFixed(0);
                             }
-
                         }
                     }, colors: ["#fcdf03"],
                     tooltip: {
@@ -47,14 +43,12 @@ export class ChartSection extends Component {
                     {
                         name: 'Market Price',
                         data: [[1645837250522, 39804.53519937617]]
-
                     }
                 ]
             }
             ,Market_Cap: {
                 options: {
                     chart: {
-                        // id: 'area-datetime',
                         foreColor: 'white'
                     },
                     grid: {
@@ -83,7 +77,6 @@ export class ChartSection extends Component {
                     {
                         name: 'Market Cap (INR)',
                         data: [[1645837250522, 39804.53519937617]]
-
                     }
                 ]
             }
@@ -91,7 +84,6 @@ export class ChartSection extends Component {
             Tot_Vol: {
                 options: {
                     chart: {
-                        // id: 'area-datetime',
                         foreColor: 'white'
                     },
                     grid: {
@@ -120,23 +112,19 @@ export class ChartSection extends Component {
                     {
                         name: "Market Volume",
                         data: [[1645837250522, 39804.53519937617]]
-
                     }
                 ]
             }
-            
         };
         this.prevSelection = this.state.Price.options.selection
     }
     prevId = this.props.Id
-
     fetchData = async () => {
         let chartData = await fetch('https://api.coingecko.com/api/v3/coins/' + this.props.Id + '/market_chart?vs_currency=INR&days=' + this.state.Price.options.selection);
         let jsonChartData = await chartData.json()
         this.setState({ Price: { options: this.state.Price.options, series: [{ name: 'Market Price', data: jsonChartData.prices }] } })
         this.setState({ Market_Cap: { options: this.state.Market_Cap.options, series: [{ name: 'Market Cap', data: jsonChartData.market_caps }] } })
         this.setState({ Tot_Vol: { options: this.state.Tot_Vol.options, series: [{ name: 'Total Volumes', data: jsonChartData.total_volumes }] } })
-
     }
 
 

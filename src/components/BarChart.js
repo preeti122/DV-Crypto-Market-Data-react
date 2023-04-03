@@ -152,22 +152,22 @@ const BarChart = () => {
   
   return (
     <ThemeProvider theme={darkTheme}>
-    <Card>
-      <CardHeader 
-        title='Top 10 Most Expensive Cryptocurrencies' 
-        subheader='Top 10 Most Expensive Cryptocurrencies Measured By Their Market Price' 
-      />
-      <Divider />
-      <CardContent>
-        <Box sx={{ height: 400, position: 'relative' }}>
-          <Bar
-            data={data} 
-            options={options} 
-            plugins={[ChartDataLabels]} 
-          />
-        </Box>
-      </CardContent>
-    </Card>
+      <Card>
+        <CardHeader 
+          title='Top 10 Most Expensive Cryptocurrencies' 
+          subheader='Top 10 Most Expensive Cryptocurrencies Measured By Their Market Price' 
+        />
+        <Divider />
+        <CardContent>
+          <Box sx={{ height: 400, position: 'relative' }}>
+            <Bar
+              data={data} 
+              options={options} 
+              plugins={[ChartDataLabels]} 
+            />
+          </Box>
+        </CardContent>
+      </Card>
     </ThemeProvider>
   );
 };
