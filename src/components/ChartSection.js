@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Chart from "react-apexcharts";
+import Grid from '@mui/material/Grid';
 
 export class ChartSection extends Component {
 
@@ -231,29 +232,31 @@ export class ChartSection extends Component {
                                     {this.props.twitterF}
                                 </p>
                             </div>
-
-
-
-
                         </div>
-                        {/* <div className="col" style={{ maxWidth: '310px' }}>
+                        <div className="col" style = {{display: "flex"}}>
+                            {/* <Grid container spacing={5}> */}
                             <div >
-                                <Chart
-                                    options={this.state.Market_Cap.options}
-                                    series={this.state.Market_Cap.series}
-                                    type="line"
-                                    height='200'
-                                    width='300' />
+                                {/* <Grid item md={4} xs={8}>   */}
+                                    <Chart
+                                        options={this.state.Market_Cap.options}
+                                        series={this.state.Market_Cap.series}
+                                        type="line"
+                                        height='300'
+                                        width='600' />
+                                {/* </Grid> */}
                             </div>
                             <div >
-                                <Chart
-                                    options={this.state.Tot_Vol.options}
-                                    series={this.state.Tot_Vol.series}
-                                    type="line"
-                                    height='200'
-                                    width='300' />
+                                {/* <Grid item md={4} xs={8}>   */}
+                                    <Chart
+                                        options={this.state.Tot_Vol.options}
+                                        series={this.state.Tot_Vol.series}
+                                        type="line"
+                                        height='300'
+                                        width='600' />
+                                {/* </Grid> */}
                             </div>
-                        </div> */}
+                            {/* </Grid> */}
+                        </div>
 
 
                     </div>

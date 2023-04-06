@@ -69,10 +69,10 @@ const AreaChart = () => {
       borderColor: theme.palette.primary.main,
       tension: 0.3,
       pointRadius: 3,
-      pointBackgroundColor: theme.palette.primary.main,
-      pointBorderColor: alpha(theme.palette.primary.main, 0.8),
+      pointBackgroundColor: colors.common.white,
+      pointBorderColor: alpha(colors.common.white, 0.8),
       pointHoverRadius: 3,
-      pointHoverBackgroundColor: theme.palette.primary.main,
+      pointHoverBackgroundColor: colors.common.white,
       pointHitRadius: 50,
       pointBorderWidth: 2
     }],
@@ -87,7 +87,8 @@ const AreaChart = () => {
       },
       datalabels: {
         display: isMd ? true : false,
-        color: theme.palette.mode === 'dark' ? theme.palette.text.primary : theme.palette.text.secondary,
+        // color: theme.palette.mode === 'dark' ? theme.palette.text.primary : theme.palette.text.secondary,
+        color: colors.common.white,
         align: 'top',
         labels: {
           title: {
@@ -104,30 +105,38 @@ const AreaChart = () => {
     scales: {
       x: {
         ticks: {
-          color: theme.palette.text.primary,
+          // color: theme.palette.text.primary,
+          color: colors.common.white,
           maxRotation: 45,
           minRotation: 45,
         },
         grid: {
-          color: theme.palette.divider,
+          // color: theme.palette.divider,
+          color: colors.common.white,
         },
       },
       y: {
         ticks: {
-          color: theme.palette.text.primary,
-          padding: 10,
+          min: 0,
+          max: 12000000000,
+          stepSize: 1000000000,
+          // color: theme.palette.text.primary,
+          color: colors.common.white,
+          padding: 5,
           callback: (value) => numberFormat(value)
         },
         display: true,
         borderDash: [5, 5],
         grid: {
-          color: theme.palette.divider,
+          // color: theme.palette.divider,
+          color: colors.common.white,
         },
       },
     },
   };
   
   return (
+  <ThemeProvider theme={darkTheme}>
     <Card>
       <CardHeader  
         title='Top 10 Cryptocurrencies By All-Time-High' 
@@ -144,6 +153,7 @@ const AreaChart = () => {
         </Box>
       </CardContent>
     </Card>
+    </ThemeProvider>
   );
 };
 

@@ -69,7 +69,7 @@ export default class App extends Component {
             <Grid item md={4} xs={8}>  
               <DonutChart />
             </Grid>
-          </Grid>
+        </Grid>
         <Grid container spacing={2}>
           <Grid xs={12}>
             <BarChart/>

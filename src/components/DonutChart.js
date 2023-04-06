@@ -120,7 +120,7 @@ const DonutChart = () => {
       />
       <Divider />
       <CardContent>
-        <Box sx={{ height: 400, position: 'relative', backgroundColor: "#222222"}}>
+        <Box sx={{ height: 290, position: 'relative', backgroundColor: "#222222"}}>
           <Pie
             data={data} 
             options={options} 

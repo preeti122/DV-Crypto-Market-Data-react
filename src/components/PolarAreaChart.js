@@ -19,9 +19,12 @@ Chart.register(...registerables);
 const PolarAreaChart = () => {
   const theme = useTheme();
   const darkTheme=createTheme({
+    lightColors: {
+    primary: 'red',
+  },
     palette:{
          mode:'dark'
-        
+        // color: 'rgb(0,0,0)'
     }
   })
 
@@ -74,6 +77,15 @@ const PolarAreaChart = () => {
     maintainAspectRatio: false,
     borderWidth: 1,
     backgroundColor: colors.common.white,
+    // polarArea:
+    //   {
+    //     rings: {
+    //       strokeColor: "white",
+    //     },
+    //     spokes: {
+    //       connectorColors: "white",
+    //     }
+    //   },
     plugins: {
       legend: {
         display: true,
@@ -116,8 +128,10 @@ const PolarAreaChart = () => {
         <CardContent>
             <Box sx={{ height: 400, position: 'relative' }}>
             <PolarArea
+
                 data={data} 
                 options={options} 
+                // plotOptions = 
                 plugins={[ChartDataLabels]} 
             />
             </Box>
